@@ -13,12 +13,9 @@ import static com.example.parser.modules.selenium.dns.Characteristics.createChar
 import static com.example.parser.modules.selenium.dns.Features.createFeaturesDNS;
 
 public class pageCreator {
-    private static Cookie someNameForCookie = new Cookie("Name", "Value");
     public static String createDnsPageHTML(String url){
         System.setProperty("webdriver.chrome.driver","selenium\\chromedriver.exe");
         ChromeDriver driver = new ChromeDriver();
-
-        driver.manage().addCookie(someNameForCookie);
         driver.get(url+"/characteristics/");
         Document document;
         String result = "Введите валидную ссылку";
