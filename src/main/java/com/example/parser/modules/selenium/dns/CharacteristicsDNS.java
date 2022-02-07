@@ -1,5 +1,6 @@
 package com.example.parser.modules.selenium.dns;
 
+import com.example.parser.modules.Creator;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
@@ -8,8 +9,7 @@ import java.util.List;
 
 import static com.example.parser.methods.HtmlToText.html2text;
 
-public class Characteristics {
-
+public class CharacteristicsDNS implements Creator {
 
     public static String build(Element element){
         try{
@@ -40,7 +40,6 @@ public class Characteristics {
         }
         return result;
     }
-
 
     public static List<String> createCharacteristicsDNS(Element document) {
         StringBuilder ttx = new StringBuilder("<strong>Технические характеристики</strong>\n\n");

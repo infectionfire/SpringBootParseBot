@@ -11,6 +11,7 @@ import static com.example.parser.modules.VI.Equipment.createComplectationVI;
 import static com.example.parser.modules.VI.Features.createFeaturesVI;
 import static com.example.parser.modules.VI.Weight.createWeightVI;
 import static com.example.parser.modules.selenium.PageCreator.createDnsPageHTML;
+import static com.example.parser.modules.selenium.PageCreator.createEldPageHTML;
 
 
 /**
@@ -26,7 +27,9 @@ public class StructureCardBuilder {
         StringBuilder oneProductCard = new StringBuilder();
         if (search.contains("dns-shop")){
             return createDnsPageHTML(search);
-        }else {
+        }else if(search.contains("https://www.eldorado.ru")){
+            return createEldPageHTML(search);
+        } else {
             Document document;
             try {
                 document = Jsoup.parse(new URL(search), 45000);
