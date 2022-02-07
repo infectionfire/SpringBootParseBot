@@ -1,9 +1,11 @@
 package com.example.parser.modules.selenium.dns;
 
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.openqa.selenium.Cookie;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -11,11 +13,19 @@ import java.util.List;
 
 import static com.example.parser.modules.selenium.dns.Characteristics.createCharacteristicsDNS;
 import static com.example.parser.modules.selenium.dns.Features.createFeaturesDNS;
+import static com.example.parser.modules.selenium.dns.config.getUserAgent;
 
 public class pageCreator {
+
+    @Rule
+    public Timeout globalTimeout = new Timeout(300000);
+
     public static String createDnsPageHTML(String url){
         System.setProperty("webdriver.chrome.driver","selenium\\chromedriver.exe");
-        ChromeDriver driver = new ChromeDriver();
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments(getUserAgent());
+        ChromeDriver driver = new ChromeDriver(options);
         driver.get(url+"/characteristics/");
         Document document;
         String result = "Введите валидную ссылку";
@@ -24,6 +34,7 @@ public class pageCreator {
             Element element = document
                     .select("div.product-card-tabs__contents")
                     .first();
+            if (element!=null)
             result = build(createFeaturesDNS(element), createCharacteristicsDNS(element));
         }finally {
             driver.quit();
