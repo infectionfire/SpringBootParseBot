@@ -22,17 +22,13 @@ public class SeleniumBuilder {
             result = CharacteristicsDNS.build(element);
         } finally {
             driver.quit();
-            if (result.length()<200){
-                return "Введите валидную ссылку";
-            }
-            return result;
+            return result.length()<200? "Введите валидную ссылку":result;
         }
     }
 
     public static String getEldChars(ChromeDriver driver, String url) {
         String result = "";
         driver.get(url);
-
         Document document;
         try {
             Thread.sleep(5000);
@@ -40,10 +36,7 @@ public class SeleniumBuilder {
             result = buildEld(document);
         } finally {
             driver.quit();
-            if (result.length()<200){
-                return "Введите валидную ссылку";
-            }
-            return result;
+            return result.length()<200? "Введите валидную ссылку":result;
         }
     }
 }

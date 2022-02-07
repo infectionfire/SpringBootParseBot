@@ -2,10 +2,8 @@ package com.example.parser.modules.VI;
 
 import com.example.parser.modules.Creator;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Weight implements Creator {//вес, первая строка - брутто, остальные перекидываем в габариты
@@ -23,12 +21,10 @@ public class Weight implements Creator {//вес, первая строка - б
         if (tableParameter!=null) {
             //выбираем вложение
             Elements names = tableParameter.select("li.item");
-            List<String> listTemp = new ArrayList<>();
+            List<String> listTemp = names.stream()
+                    .map(value -> value.select("li.item")
+                            .text()).toList();
             //добавляем
-            for (Element value : names) {
-                String theme = value.select("li.item").text();
-                listTemp.add(theme);
-            }
             int count = 0;
             for (int i = 1; i < listTemp.size(); i++) {
                 if (listTemp.get(i-1).equals("Единица товара: Штука")) {

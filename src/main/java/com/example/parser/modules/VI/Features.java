@@ -26,14 +26,4 @@ public class Features implements Creator {
         }
         return new StringBuilder("\n\n");
         }
-
-    public static String createFeaturesDNS(String document) {
-
-        Document page = Document.createShell(document);
-        Element element = page.select("div.product-card-description-text.product-card-description__block.product-card-description__block_panel").first();
-        if (element!=null){
-            return HtmlToText.html2text(element.toString())+"\n\n";
-        }
-        return "\n\n";
-    }
 }

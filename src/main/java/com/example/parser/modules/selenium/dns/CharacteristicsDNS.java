@@ -6,6 +6,7 @@ import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import static com.example.parser.methods.HtmlToText.html2text;
 
@@ -17,9 +18,7 @@ public class CharacteristicsDNS implements Creator {
         List<String> character = createFeaturesDNS(element);
         StringBuilder result = new StringBuilder(character.get(0)+".\n\n");
         result.append(ttx.get(0)).append("\n").append("<strong>Особенности:<strong>\n\n");
-        for (int i = 1;i<character.size();i++){
-            result.append("- ").append(character.get(i)).append(";\n");
-        }
+        IntStream.range(1, character.size()).forEach(i -> result.append("- ").append(character.get(i)).append(";\n"));
         result.replace(result.length()-2,result.length(),"\n\n");
         result.append("<strong>Комплектация:<strong>\n\n");
 

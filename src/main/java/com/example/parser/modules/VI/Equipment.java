@@ -21,21 +21,19 @@ public class Equipment implements Creator {
 
         Element tableParameter = page.select("div.equipment.spoiler").first();
         if (tableParameter!=null){
-
             Elements names = tableParameter.select("ul");
             Elements values = names.select("li");
-
-            for (Element value : values) {
-                String theme = value.select("li").text();
-                equipment.append("- ").append(theme).append(";\n");
-                }
-            equipment = new StringBuilder(equipment.toString().replace(";;", ";"));
-
-            StringBuilder temp = equipment.replace(equipment.length()-2,equipment.length()-1,".")
+            StringBuilder finalEquipment = equipment;
+            values.forEach(value -> {
+                finalEquipment.append("- " + value.select("li").text() + ";\n");
+            });
+            equipment = new StringBuilder(finalEquipment.toString().replace(";;", ";"));
+            equipment.replace(equipment.length() - 2, equipment.length() - 1, ".")
                     .append("\n");
-            equipment = new StringBuilder(temp.toString()
+            return new StringBuilder(equipment.toString()
                     .replace("..", "."));
         }
         return equipment;
+
     }
 }

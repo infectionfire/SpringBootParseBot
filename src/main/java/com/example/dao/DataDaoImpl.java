@@ -10,7 +10,7 @@ import java.util.List;
 public class DataDaoImpl  implements DataDao{
 
     public Data findById(int id) {
-        return (Data) HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Data.class, id);
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Data.class, id);
     }
 
     public void save(Data data) {
