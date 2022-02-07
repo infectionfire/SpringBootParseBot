@@ -1,13 +1,14 @@
-package com.example.parser.modules.selenium.dns;
+package com.example.parser.methods;
 
+import com.example.parser.modules.selenium.dns.Characteristics;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class StructureDnsCard {
+public class SeleniumBuilder {
     public static String getDnsChars(ChromeDriver driver, String url) {
-        String result = "Введите валидную ссылку";
+        String result = "";
         driver.get(url + "/characteristics/");
         Document document;
         try {
@@ -18,6 +19,9 @@ public class StructureDnsCard {
             result = Characteristics.build(element);
         } finally {
             driver.quit();
+            if (result.length()<200){
+                return "Введите валидную ссылку";
+            }
             return result;
         }
     }

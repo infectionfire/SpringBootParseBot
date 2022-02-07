@@ -51,10 +51,10 @@ class ExampleBot extends TelegramLongPollingBot {
 			SendMessage response = new SendMessage();
 			Long chatId = message.getChatId();
 			response.setChatId(String.valueOf(chatId));
-			String text = null;
+			String text = "";
 			text = BuildDescriptionVI(message.getText());
 			DataServiceImpl dataService = new DataServiceImpl();
-			Data data = new Data(text,message.getText());
+			Data data = new Data(text, message.getText());
 			try {
 				dataService.saveData(data);
 			} catch (Exception e) {
