@@ -1,4 +1,4 @@
-package com.example.parser.modules.interf;
+package com.example.parser.interf;
 
 public interface CharacteristicsFactory {
 

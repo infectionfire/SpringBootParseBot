@@ -1,6 +1,6 @@
-package com.example.parser.modules.selenium.dns;
+package com.example.parser.dns;
 
-import com.example.parser.modules.interf.FeaturesFactory;
+import com.example.parser.interf.FeaturesFactory;
 import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
@@ -10,11 +10,11 @@ import static com.example.parser.methods.HtmlToText.html2text;
 
 public class FeaturesDNS implements FeaturesFactory {
 
-    private FeaturesDNS() {
+    protected FeaturesDNS() {
         throw new IllegalStateException("Utility class");
     }
 
-    public static List<String> createFeatures(Element document) {
+    static List<String> createFeatures(Element document) {
         List<String> result = new ArrayList<>();
         if (document!=null) {
             Element page = document.select("p").first();

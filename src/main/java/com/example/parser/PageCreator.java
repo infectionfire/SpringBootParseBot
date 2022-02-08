@@ -1,14 +1,12 @@
-package com.example.parser.modules.selenium;
+package com.example.parser;
 
-import com.example.parser.modules.interf.Creator;
-import com.example.parser.modules.selenium.dns.BuildCardDNS;
-import com.example.parser.modules.selenium.eld.BuildCardEld;
+import com.example.parser.interf.Creator;
+import com.example.parser.dns.BuildCardDNS;
+import com.example.parser.eld.BuildCardEld;
 import org.junit.Rule;
 import org.junit.rules.Timeout;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-import static com.example.parser.modules.selenium.config.getUserAgent;
 
 
 public class PageCreator implements Creator {
@@ -23,15 +21,15 @@ public class PageCreator implements Creator {
     public static String createDnsPageHTML(String url){
         System.setProperty("webdriver.chrome.driver","selenium\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments(getUserAgent());//подстановка юзерагента
+        options.addArguments(config.getUserAgent());//подстановка юзерагента
         ChromeDriver driver = new ChromeDriver(options);
-        return BuildCardDNS.getDnsChars(driver, url);
+        return BuildCardDNS.buildValidCard(driver, url);
     }
 
     public static String createEldPageHTML(String url) {
         System.setProperty("webdriver.chrome.driver","selenium\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments(getUserAgent());//подстановка юзерагента
+        options.addArguments(config.getUserAgent());//подстановка юзерагента
         ChromeDriver driver = new ChromeDriver(options);
         return BuildCardEld.getEldChars(driver, url);
     }

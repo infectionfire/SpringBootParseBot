@@ -1,7 +1,6 @@
-package com.example.parser.modules.VI;
+package com.example.parser.VI;
 
-import com.example.parser.modules.interf.CharacteristicsFactory;
-import com.example.parser.modules.interf.Creator;
+import com.example.parser.interf.CharacteristicsFactory;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
@@ -13,7 +12,7 @@ public class Weight  implements CharacteristicsFactory {//вес, первая �
         throw new IllegalStateException("Utility class");
     }
 
-    public static StringBuilder createWeightVI(Document document) {
+    static StringBuilder createWeightVI(Document document) {
         StringBuilder weigh = new StringBuilder("<strong>Габаритные размеры:</strong>\n\n");
         //берем страницу
         Document page = document;

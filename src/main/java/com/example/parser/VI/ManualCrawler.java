@@ -1,7 +1,6 @@
-package com.example.parser.modules.VI;
+package com.example.parser.VI;
 
-import com.example.parser.modules.interf.Creator;
-import com.example.parser.modules.interf.FeaturesFactory;
+import com.example.parser.interf.FeaturesFactory;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
@@ -10,16 +9,16 @@ import org.jsoup.nodes.Element;
  * в случае отсутствия инструкции в формате PDF возвращает пустую строку для заполнения ячейки в эксель
  */
 
-public class ManualCrawler implements FeaturesFactory {
+ class ManualCrawler implements FeaturesFactory {
     private static String instr = "";
 
 
-    public static String getManual(Document document) {
+     static String getManual(Document document) {
         CreateInstrUrlVI(document);
         return instr;
     }
 
-    public static String CreateInstrUrlVI(Document document) {
+    static String CreateInstrUrlVI(Document document) {
         StringBuilder setInstr = new StringBuilder("");
         Document page = document;
         Element imageElement = page.select("ul.unordered-list.-links.spoiler.-download").first();

@@ -1,7 +1,6 @@
-package com.example.parser.modules.VI;
+package com.example.parser.VI;
 
-import com.example.parser.modules.interf.Creator;
-import com.example.parser.modules.interf.FeaturesFactory;
+import com.example.parser.interf.FeaturesFactory;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -12,14 +11,14 @@ import java.util.stream.IntStream;
  * Формирование поля особенности для описания товарной карточки
  */
 
-public class Advantages implements FeaturesFactory {//особенности
+ class Advantages implements FeaturesFactory {//особенности
 
     private Advantages() {
         throw new IllegalStateException("Utility class");
     }
 
 
-    public static StringBuilder createAdvantagesVI(Document document) {
+    static StringBuilder createAdvantagesVI(Document document) {
         StringBuilder advantagesCreator = new StringBuilder("<strong>Особенности:</strong>\n\n");
         Element element = document
                 .select("div.advantages.spoiler")

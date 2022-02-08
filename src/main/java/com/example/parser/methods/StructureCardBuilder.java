@@ -1,8 +1,8 @@
 package com.example.parser.methods;
 
-import static com.example.parser.modules.VI.BuildCardVI.VIFactory;
-import static com.example.parser.modules.selenium.PageCreator.createDnsPageHTML;
-import static com.example.parser.modules.selenium.PageCreator.createEldPageHTML;
+import static com.example.parser.VI.BuildCardVI.VIFactory;
+import static com.example.parser.PageCreator.createDnsPageHTML;
+import static com.example.parser.PageCreator.createEldPageHTML;
 
 
 /**
@@ -10,7 +10,7 @@ import static com.example.parser.modules.selenium.PageCreator.createEldPageHTML;
  */
 public class StructureCardBuilder {
 
-    private StructureCardBuilder() {
+    protected StructureCardBuilder() {
         throw new IllegalStateException("Utility class");
     }
 

@@ -1,7 +1,6 @@
-package com.example.parser.modules.VI;
+package com.example.parser.VI;
 
-import com.example.parser.modules.interf.CharacteristicsFactory;
-import com.example.parser.modules.interf.Creator;
+import com.example.parser.interf.CharacteristicsFactory;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -10,13 +9,13 @@ import org.jsoup.select.Elements;
  * Формирование поля "Комплектация" для описания товарной карточки
  */
 
-public class Equipment   implements CharacteristicsFactory {
+ class Equipment   implements CharacteristicsFactory {
 
     private Equipment() {
         throw new IllegalStateException("Utility class");
     }
 
-    public static StringBuilder createComplectationVI(Document document) {
+    static StringBuilder createComplectationVI(Document document) {
         StringBuilder equipment = new StringBuilder("<strong>Комплектация:</strong>\n\n");
         Document page = document;
 

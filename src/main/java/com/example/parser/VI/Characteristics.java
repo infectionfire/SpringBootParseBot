@@ -1,7 +1,6 @@
-package com.example.parser.modules.VI;
+package com.example.parser.VI;
 
-import com.example.parser.modules.interf.CharacteristicsFactory;
-import com.example.parser.modules.interf.Creator;
+import com.example.parser.interf.CharacteristicsFactory;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -12,12 +11,12 @@ import static com.example.parser.methods.StringCharacterFormatter.characteristic
  * Формирование поля "технические характеристики" для описания товарной карточки
  */
 
-public class Characteristics implements CharacteristicsFactory {//технические характеристики
+ class Characteristics implements CharacteristicsFactory {//технические характеристики
     private Characteristics() {
         throw new IllegalStateException("Utility class");
     }
 
-    public static StringBuilder createCharacteristicsVI(Document document) {
+    protected static StringBuilder createCharacteristicsVI(Document document) {
         StringBuilder charact = new StringBuilder("<strong>Технические характеристики:</strong>\n\n");
         Element element = document
                 .select("div.features.spoiler")
@@ -39,7 +38,7 @@ public class Characteristics implements CharacteristicsFactory {//техниче
         return charact.append("\n");
     }
 
-    public static StringBuilder createCharacteristicsELD(Document document) {
+    protected static StringBuilder createCharacteristicsELD(Document document) {
         StringBuilder charact = new StringBuilder("<strong>Технические характеристики:</strong>\n\n");
         Element element = document
                 .select("innerContainer.goodDescriptionText.q-item-main-description.lazyload-block")

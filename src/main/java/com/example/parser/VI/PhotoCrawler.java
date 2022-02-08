@@ -1,7 +1,6 @@
-package com.example.parser.modules.VI;
+package com.example.parser.VI;
 
-import com.example.parser.modules.interf.Creator;
-import com.example.parser.modules.interf.FeaturesFactory;
+import com.example.parser.interf.FeaturesFactory;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
@@ -10,16 +9,16 @@ import org.jsoup.nodes.Element;
  * можно переделать, сделать сплит через " и вытаскивать ссылки через endWith
  */
 
-public class PhotoCrawler implements FeaturesFactory {
+ class PhotoCrawler implements FeaturesFactory {
 
     private static String photo = "";
 
-    public static String getPhoto(Document document)  {
+     static String getPhoto(Document document)  {
         PhotoUrlsCreateVI(document);
         return photo;
     }
 
-    public static String PhotoUrlsCreateVI(Document document) {
+     static String PhotoUrlsCreateVI(Document document) {
         Document page = document;
         Element imageElement = page.select("div.item").first();
         if (imageElement!=null) {

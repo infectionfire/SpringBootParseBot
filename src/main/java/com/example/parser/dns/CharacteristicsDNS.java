@@ -1,6 +1,6 @@
-package com.example.parser.modules.selenium.dns;
+package com.example.parser.dns;
 
-import com.example.parser.modules.interf.CharacteristicsFactory;
+import com.example.parser.interf.CharacteristicsFactory;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
@@ -11,17 +11,18 @@ import static com.example.parser.methods.HtmlToText.html2text;
 
 public class CharacteristicsDNS implements CharacteristicsFactory {
 
-    private CharacteristicsDNS() {
+    protected CharacteristicsDNS() {
         throw new IllegalStateException("Utility class");
+
     }
 
-    public static List<String> createCharacteristics(Element document) {
+    static List<String> createCharacteristics(Element element) {
         StringBuilder ttx = new StringBuilder("<strong>Технические характеристики</strong>\n\n");
         StringBuilder dimensions =
                 new StringBuilder("<strong>Габаритные размеры</strong>\n\n- Габаритные размеры (ДхШхВ): ");
         List<String> result = new ArrayList<>();
-        Elements name = document.select("div.product-characteristics__spec-title");
-        Elements value = document.select("div.product-characteristics__spec-value");
+        Elements name = element.select("div.product-characteristics__spec-title");
+        Elements value = element.select("div.product-characteristics__spec-value");
         for (int i = 0; i < name.size(); i++) {
             String temp1 = html2text(name.get(i).toString());
             String temp2 = html2text(value.get(i).toString());

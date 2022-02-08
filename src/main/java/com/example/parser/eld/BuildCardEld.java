@@ -1,7 +1,6 @@
-package com.example.parser.modules.selenium.eld;
+package com.example.parser.eld;
 
-import com.example.parser.modules.interf.Creator;
-import com.example.parser.modules.interf.FactoryCards;
+import com.example.parser.interf.FactoryCards;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jsoup.Jsoup;
@@ -10,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 
-public class BuildCardEld  implements FactoryCards {
+public class BuildCardEld implements FactoryCards {
 
     private BuildCardEld() {
         throw new IllegalStateException("Utility class");
@@ -19,7 +18,7 @@ public class BuildCardEld  implements FactoryCards {
 
     static Logger log = LogManager.getLogger();
 
-    public static String EldFactory(Document document) {
+     private static String EldFactory(Document document) {
         StringBuilder result = new StringBuilder();
         try{
             List<String> temp = FeaturesEld.createFeaturesEld(document);
