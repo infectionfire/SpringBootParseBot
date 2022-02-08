@@ -1,6 +1,6 @@
 package com.example.parser.modules.VI;
 
-import com.example.parser.modules.Creator;
+import com.example.parser.modules.interf.Creator;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
@@ -9,7 +9,7 @@ import org.jsoup.nodes.Element;
  * можно переделать, сделать сплит через " и вытаскивать ссылки через endWith
  */
 
-public class PhotoCrawler implements Creator {
+public class PhotoCrawler {
 
     private static String photo = "";
 

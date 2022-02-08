@@ -1,6 +1,6 @@
 package com.example.parser.modules.VI;
 
-import com.example.parser.modules.Creator;
+import com.example.parser.modules.interf.Creator;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -9,7 +9,7 @@ import org.jsoup.select.Elements;
  * Формирование поля "Комплектация" для описания товарной карточки
  */
 
-public class Equipment implements Creator {
+public class Equipment  {
 
     private Equipment() {
         throw new IllegalStateException("Utility class");

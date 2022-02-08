@@ -1,12 +1,12 @@
 package com.example.parser.modules.VI;
 
-import com.example.parser.modules.Creator;
+import com.example.parser.modules.interf.Creator;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.util.List;
 
-public class Weight implements Creator {//вес, первая строка - брутто, остальные перекидываем в габариты
+public class Weight {//вес, первая строка - брутто, остальные перекидываем в габариты
 
     private Weight() {
         throw new IllegalStateException("Utility class");

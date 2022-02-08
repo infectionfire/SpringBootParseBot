@@ -1,6 +1,6 @@
 package com.example.parser.modules.VI;
 
-import com.example.parser.modules.Creator;
+import com.example.parser.modules.interf.Creator;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
@@ -9,7 +9,7 @@ import org.jsoup.nodes.Element;
  * в случае отсутствия инструкции в формате PDF возвращает пустую строку для заполнения ячейки в эксель
  */
 
-public class ManualCrawler implements Creator {
+public class ManualCrawler {
     private static String instr = "";
 
 

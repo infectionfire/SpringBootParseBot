@@ -58,7 +58,7 @@ class ExampleBot extends TelegramLongPollingBot {
 			try {
 				dataService.saveData(data);
 			} catch (Exception e) {
-				logger.info("Not unique value");
+				logger.error("Not unique value");
 			}
 			response.setText(text);
 			try {

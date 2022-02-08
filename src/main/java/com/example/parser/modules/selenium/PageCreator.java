@@ -1,13 +1,14 @@
 package com.example.parser.modules.selenium;
 
 import com.example.parser.methods.SeleniumBuilder;
-import com.example.parser.modules.Creator;
+import com.example.parser.modules.interf.Creator;
 import org.junit.Rule;
 import org.junit.rules.Timeout;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import static com.example.parser.modules.selenium.config.getUserAgent;
+
 
 public class PageCreator implements Creator {
 

@@ -1,46 +1,17 @@
 package com.example.parser.modules.selenium.dns;
 
-import com.example.parser.modules.Creator;
+import com.example.parser.modules.interf.Characteristics;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 import static com.example.parser.methods.HtmlToText.html2text;
 
-public class CharacteristicsDNS implements Creator {
+public class CharacteristicsDNS implements Characteristics {
 
-    public static String build(Element element){
-        try{
-        List<String> ttx = createCharacteristicsDNS(element);
-        List<String> character = createFeaturesDNS(element);
-        StringBuilder result = new StringBuilder(character.get(0)+".\n\n");
-        result.append(ttx.get(0)).append("\n").append("<strong>Особенности:<strong>\n\n");
-        IntStream.range(1, character.size()).forEach(i -> result.append("- ").append(character.get(i)).append(";\n"));
-        result.replace(result.length()-2,result.length(),"\n\n");
-        result.append("<strong>Комплектация:<strong>\n\n");
-
-        result.append(ttx.get(1));
-        return result.toString();
-        }catch (Exception e){
-            return "";
-        }
-    }
-
-    public static List<String> createFeaturesDNS(Element document) {
-        List<String> result = new ArrayList<>();
-        if (document!=null) {
-            Element page = document.select("p").first();
-            if (page != null) {
-                result = List.of((html2text(page.toString())).split("\\. "));
-            }
-        }
-        return result;
-    }
-
-    public static List<String> createCharacteristicsDNS(Element document) {
+    public static List<String> createCharacteristics(Element document) {
         StringBuilder ttx = new StringBuilder("<strong>Технические характеристики</strong>\n\n");
         StringBuilder dimensions =
                 new StringBuilder("<strong>Габаритные размеры</strong>\n\n- Габаритные размеры (ДхШхВ): ");

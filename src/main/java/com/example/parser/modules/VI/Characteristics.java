@@ -1,6 +1,6 @@
 package com.example.parser.modules.VI;
 
-import com.example.parser.modules.Creator;
+import com.example.parser.modules.interf.Creator;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -11,7 +11,7 @@ import static com.example.parser.methods.StringCharacterFormatter.characteristic
  * Формирование поля "технические характеристики" для описания товарной карточки
  */
 
-public class Characteristics implements Creator {//технические характеристики
+public class Characteristics {//технические характеристики
     private Characteristics() {
         throw new IllegalStateException("Utility class");
     }

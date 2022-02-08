@@ -12,8 +12,6 @@ public class DataServiceImpl implements DataService{
     public DataServiceImpl() {
     }
 
-
-
     public Data findData(int id) {
         return usersDao.findById(id);
     }

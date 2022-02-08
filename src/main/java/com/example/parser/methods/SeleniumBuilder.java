@@ -1,12 +1,12 @@
 package com.example.parser.methods;
 
-import com.example.parser.modules.selenium.dns.CharacteristicsDNS;
+import com.example.parser.modules.selenium.dns.BuildCardDNS;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import static com.example.parser.modules.selenium.eld.CharacteristicsEld.buildEld;
+import static com.example.parser.modules.selenium.eld.BuildCardEld.buildEld;
 
 public class SeleniumBuilder {
 
@@ -19,7 +19,7 @@ public class SeleniumBuilder {
             Element element = document
                     .select("div.product-card-tabs__contents")
                     .first();
-            result = CharacteristicsDNS.build(element);
+            result = BuildCardDNS.build(element);
         } finally {
             driver.quit();
             return result.length()<200? "Введите валидную ссылку":result;
