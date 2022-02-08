@@ -1,6 +1,6 @@
 package com.example.parser.modules.selenium.dns;
 
-import com.example.parser.modules.interf.Characteristics;
+import com.example.parser.modules.interf.CharacteristicsFactory;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
@@ -9,7 +9,11 @@ import java.util.List;
 
 import static com.example.parser.methods.HtmlToText.html2text;
 
-public class CharacteristicsDNS implements Characteristics {
+public class CharacteristicsDNS implements CharacteristicsFactory {
+
+    private CharacteristicsDNS() {
+        throw new IllegalStateException("Utility class");
+    }
 
     public static List<String> createCharacteristics(Element document) {
         StringBuilder ttx = new StringBuilder("<strong>Технические характеристики</strong>\n\n");

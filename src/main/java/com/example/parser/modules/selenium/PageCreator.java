@@ -1,7 +1,8 @@
 package com.example.parser.modules.selenium;
 
-import com.example.parser.methods.SeleniumBuilder;
 import com.example.parser.modules.interf.Creator;
+import com.example.parser.modules.selenium.dns.BuildCardDNS;
+import com.example.parser.modules.selenium.eld.BuildCardEld;
 import org.junit.Rule;
 import org.junit.rules.Timeout;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,12 +16,16 @@ public class PageCreator implements Creator {
     @Rule
     public Timeout globalTimeout = new Timeout(300000);
 
+    private PageCreator() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static String createDnsPageHTML(String url){
         System.setProperty("webdriver.chrome.driver","selenium\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments(getUserAgent());//подстановка юзерагента
         ChromeDriver driver = new ChromeDriver(options);
-        return SeleniumBuilder.getDnsChars(driver, url);
+        return BuildCardDNS.getDnsChars(driver, url);
     }
 
     public static String createEldPageHTML(String url) {
@@ -28,6 +33,6 @@ public class PageCreator implements Creator {
         ChromeOptions options = new ChromeOptions();
         options.addArguments(getUserAgent());//подстановка юзерагента
         ChromeDriver driver = new ChromeDriver(options);
-        return SeleniumBuilder.getEldChars(driver, url);
+        return BuildCardEld.getEldChars(driver, url);
     }
 }

@@ -1,18 +1,26 @@
 package com.example.parser.modules.selenium.dns;
 
+import com.example.parser.modules.interf.FactoryCards;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 import java.util.stream.IntStream;
 
 import static com.example.parser.modules.selenium.dns.CharacteristicsDNS.createCharacteristics;
 
-public class BuildCardDNS {
+public class BuildCardDNS  implements FactoryCards {
     static Logger log = LogManager.getLogger();
 
-    public static String build(Element element){
+    private BuildCardDNS() {
+        throw new IllegalStateException("Utility class");
+    }
+
+    public static String DnsFactory(Element element){
         try{
         List<String> ttx = createCharacteristics(element);
         List<String> character = FeaturesDNS.createFeatures(element);
@@ -30,4 +38,19 @@ public class BuildCardDNS {
         }
     }
 
+    public static String getDnsChars(ChromeDriver driver, String url) {
+        String result = "";
+        driver.get(url + "/characteristics/");
+        Document document;
+        try {
+            document = Jsoup.parse(driver.getPageSource());
+            Element element = document
+                    .select("div.product-card-tabs__contents")
+                    .first();
+            result = DnsFactory(element);
+        } finally {
+            driver.quit();
+            return result.length()<200? "Введите валидную ссылку":result;
+        }
+    }
 }

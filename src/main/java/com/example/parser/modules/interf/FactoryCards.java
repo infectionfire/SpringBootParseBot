@@ -1,5 +1,4 @@
 package com.example.parser.modules.interf;
 
-public interface Characteristics {
-
+public interface FactoryCards {
 }

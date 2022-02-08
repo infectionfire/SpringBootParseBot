@@ -1,6 +1,7 @@
 package com.example.parser.modules.VI;
 
 import com.example.parser.modules.interf.Creator;
+import com.example.parser.modules.interf.FeaturesFactory;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
@@ -9,7 +10,7 @@ import org.jsoup.nodes.Element;
  * в случае отсутствия инструкции в формате PDF возвращает пустую строку для заполнения ячейки в эксель
  */
 
-public class ManualCrawler {
+public class ManualCrawler implements FeaturesFactory {
     private static String instr = "";
 
 

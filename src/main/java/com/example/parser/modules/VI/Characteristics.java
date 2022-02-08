@@ -1,5 +1,6 @@
 package com.example.parser.modules.VI;
 
+import com.example.parser.modules.interf.CharacteristicsFactory;
 import com.example.parser.modules.interf.Creator;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -11,7 +12,7 @@ import static com.example.parser.methods.StringCharacterFormatter.characteristic
  * Формирование поля "технические характеристики" для описания товарной карточки
  */
 
-public class Characteristics {//технические характеристики
+public class Characteristics implements CharacteristicsFactory {//технические характеристики
     private Characteristics() {
         throw new IllegalStateException("Utility class");
     }

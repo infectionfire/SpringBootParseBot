@@ -25,4 +25,14 @@ public class StringCharacterFormatter {
         }
         return characters;
     }
+
+    public static String replaceSigns(StringBuilder card){
+        return card.toString()
+                .replaceAll(";;", ";")
+                .replaceAll(";;", ";")
+                .replaceAll("\\.;", ";")
+                .replaceAll("\\.;", ";")
+                .replaceAll("\\.\\.", ".")
+                .replaceAll("\\.\\.", ".");
+    }
 }

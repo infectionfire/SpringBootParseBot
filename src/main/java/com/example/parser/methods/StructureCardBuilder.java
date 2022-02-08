@@ -1,6 +1,6 @@
 package com.example.parser.methods;
 
-import static com.example.parser.modules.VI.BuildCardVI.buildVI;
+import static com.example.parser.modules.VI.BuildCardVI.VIFactory;
 import static com.example.parser.modules.selenium.PageCreator.createDnsPageHTML;
 import static com.example.parser.modules.selenium.PageCreator.createEldPageHTML;
 
@@ -21,7 +21,7 @@ public class StructureCardBuilder {
         }else if(search.contains("eldorado")){
             return createEldPageHTML(search);
         } else if (search.contains("vseinstrumenti")){
-            return buildVI(search);
+            return VIFactory(search);
         }else {
             return "";
         }

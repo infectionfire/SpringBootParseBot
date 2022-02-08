@@ -1,17 +1,25 @@
 package com.example.parser.modules.selenium.eld;
 
 import com.example.parser.modules.interf.Creator;
+import com.example.parser.modules.interf.FactoryCards;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 
-public class BuildCardEld implements Creator {
+public class BuildCardEld  implements FactoryCards {
+
+    private BuildCardEld() {
+        throw new IllegalStateException("Utility class");
+    }
+
 
     static Logger log = LogManager.getLogger();
 
-    public static String buildEld(Document document) {
+    public static String EldFactory(Document document) {
         StringBuilder result = new StringBuilder();
         try{
             List<String> temp = FeaturesEld.createFeaturesEld(document);
@@ -33,4 +41,17 @@ public class BuildCardEld implements Creator {
                 .append("<strong>Габариты и вес</strong>\n\n- Габаритные размеры (ДхШхВ): ").toString();
     }
 
+    public static String getEldChars(ChromeDriver driver, String url) {
+        String result = "";
+        driver.get(url);
+        Document document;
+        try {
+            Thread.sleep(5000);
+            document = Jsoup.parse(driver.getPageSource());
+            result = EldFactory(document);
+        } finally {
+            driver.quit();
+            return result.length()<200? "Введите валидную ссылку":result;
+        }
+    }
 }

@@ -1,7 +1,5 @@
-package com.example;
+package com.example.model;
 
-import com.example.model.Data;
-import com.example.service.DataServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,7 +12,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import javax.annotation.PostConstruct;
 
-import static com.example.parser.methods.StructureCardBuilder.BuildDescriptionVI;
+import static com.example.service.MessageEditor.answerCreator;
 
 /**
  * 
@@ -48,19 +46,8 @@ class ExampleBot extends TelegramLongPollingBot {
 	public void onUpdateReceived(Update update) {
 		if (update.hasMessage()) {
 			Message message = update.getMessage();
-			SendMessage response = new SendMessage();
 			Long chatId = message.getChatId();
-			response.setChatId(String.valueOf(chatId));
-			String text = "";
-			text = BuildDescriptionVI(message.getText());
-			DataServiceImpl dataService = new DataServiceImpl();
-			Data data = new Data(text, message.getText());
-			try {
-				dataService.saveData(data);
-			} catch (Exception e) {
-				logger.error("Not unique value");
-			}
-			response.setText(text);
+			SendMessage response = answerCreator(message,chatId);
 			try {
 				execute(response);
 				logger.info("Sent message \"{}\" ", chatId);

@@ -1,12 +1,16 @@
 package com.example.parser.modules.selenium.eld;
 
-import com.example.parser.modules.interf.Features;
+import com.example.parser.modules.interf.FeaturesFactory;
 import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FeaturesEld implements Features {
+public class FeaturesEld implements FeaturesFactory {
+
+    private FeaturesEld() {
+        throw new IllegalStateException("Utility class");
+    }
 
     public static List<String> createFeaturesEld(Element document) {
         List<String> result = new ArrayList<>();

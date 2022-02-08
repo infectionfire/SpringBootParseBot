@@ -1,7 +1,7 @@
 package com.example.parser.modules.selenium.eld;
 
 import com.example.parser.methods.HtmlToText;
-import com.example.parser.modules.interf.Characteristics;
+import com.example.parser.modules.interf.CharacteristicsFactory;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -10,7 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public abstract class CharacteristicsEld  implements Characteristics {
+public abstract class CharacteristicsEld  implements CharacteristicsFactory {
+
+    private CharacteristicsEld() {
+        throw new IllegalStateException("Utility class");
+    }
 
     public static String createCharacteristicsEld(Document document) {
 
