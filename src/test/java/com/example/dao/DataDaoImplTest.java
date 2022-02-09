@@ -4,7 +4,6 @@ import com.example.model.Data;
 import com.example.utils.HibernateSessionFactoryUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.junit.jupiter.api.*;
 

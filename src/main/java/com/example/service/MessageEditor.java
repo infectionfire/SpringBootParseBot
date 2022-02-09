@@ -1,12 +1,12 @@
 package com.example.service;
 
 import com.example.model.Data;
+import com.example.parser.methods.StructureCardBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
-import static com.example.parser.methods.StructureCardBuilder.BuildDescriptionVI;
 
 public class MessageEditor {
     static Logger log = LogManager.getLogger();
@@ -15,7 +15,7 @@ public class MessageEditor {
 
         SendMessage response = new SendMessage();
         response.setChatId(String.valueOf(chatId));
-        String text = BuildDescriptionVI(message.getText());
+        String text = StructureCardBuilder.BuildDescriptionVI(message.getText());
         DataServiceImpl dataService = new DataServiceImpl();
         Data data = new Data(text, message.getText());
         response.setText(text);
