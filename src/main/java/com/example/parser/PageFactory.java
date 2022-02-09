@@ -9,12 +9,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 
-public class PageCreator implements Creator {
+public class PageFactory implements Creator {
 
     @Rule
     public Timeout globalTimeout = new Timeout(300000);
 
-    private PageCreator() {
+    private PageFactory() {
         throw new IllegalStateException("Utility class");
     }
 
@@ -31,6 +31,6 @@ public class PageCreator implements Creator {
         ChromeOptions options = new ChromeOptions();
         options.addArguments(config.getUserAgent());//подстановка юзерагента
         ChromeDriver driver = new ChromeDriver(options);
-        return BuildCardEld.getEldChars(driver, url);
+        return BuildCardEld.buildEldChars(driver, url);
     }
 }

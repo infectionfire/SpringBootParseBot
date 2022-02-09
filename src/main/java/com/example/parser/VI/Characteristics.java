@@ -38,13 +38,4 @@ import static com.example.parser.methods.StringCharacterFormatter.characteristic
         return charact.append("\n");
     }
 
-    protected static StringBuilder createCharacteristicsELD(Document document) {
-        StringBuilder charact = new StringBuilder("<strong>Технические характеристики:</strong>\n\n");
-        Element element = document
-                .select("innerContainer.goodDescriptionText.q-item-main-description.lazyload-block")
-                .first();
-
-        return charact.append(element+"\n");
-    }
-
 }

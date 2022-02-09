@@ -1,8 +1,8 @@
 package com.example.parser.methods;
 
 import static com.example.parser.VI.BuildCardVI.VIFactory;
-import static com.example.parser.PageCreator.createDnsPageHTML;
-import static com.example.parser.PageCreator.createEldPageHTML;
+import static com.example.parser.PageFactory.createDnsPageHTML;
+import static com.example.parser.PageFactory.createEldPageHTML;
 
 
 /**

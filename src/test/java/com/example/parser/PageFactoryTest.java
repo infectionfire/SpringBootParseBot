@@ -7,9 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class PageCreatorTest {
+class PageFactoryTest {
 
     @Test
     void createDnsPageHTML() {
@@ -35,7 +33,7 @@ class PageCreatorTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments(config.getUserAgent());//подстановка юзерагента
         ChromeDriver driver = new ChromeDriver(options);
-        Assertions.assertTrue(BuildCardEld.getEldChars(driver, "https://www.eldorado.ru/cat/detail/vertikalnyy-pylesos-tefal-x-pert-3-60-versatile-handstick-ty6975wo/")!=null);
+        Assertions.assertTrue(BuildCardEld.buildEldChars(driver, "https://www.eldorado.ru/cat/detail/vertikalnyy-pylesos-tefal-x-pert-3-60-versatile-handstick-ty6975wo/")!=null);
     }
     @Test
 
@@ -44,6 +42,6 @@ class PageCreatorTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments(config.getUserAgent());//подстановка юзерагента
         ChromeDriver driver = new ChromeDriver(options);
-        Assertions.assertTrue(BuildCardEld.getEldChars(driver, "https://www.eldorado.ru/c").equals("Элд не создался"));
+        Assertions.assertTrue(BuildCardEld.buildEldChars(driver, "https://www.eldorado.ru/c").equals("Элд не создался"));
     }
 }
