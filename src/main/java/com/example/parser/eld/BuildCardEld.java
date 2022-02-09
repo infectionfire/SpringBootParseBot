@@ -50,7 +50,7 @@ public class BuildCardEld implements FactoryCards {
             result = EldFactory(document);
         } finally {
             driver.quit();
-            return result.length()<200? "Введите валидную ссылку":result;
+            return result.length()<200? "Элд не создался":result;
         }
     }
 }

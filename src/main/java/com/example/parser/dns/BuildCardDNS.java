@@ -32,7 +32,7 @@ public class BuildCardDNS implements FactoryCards {
             log.debug("Описание dns создано успешно");
             return result.toString();
         }catch (Exception e){
-            log.error("Создание карты днс не удалось");
+            log.error("описание днс не сформировалось");
             return "";
         }
     }
@@ -49,7 +49,7 @@ public class BuildCardDNS implements FactoryCards {
             result = TTXFactory(element);
         } finally {
             driver.quit();
-            return result.length()<200? "Введите валидную ссылку":result;
+            return result.length()<200? "Днс не создался":result;
         }
     }
 }

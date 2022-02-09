@@ -18,12 +18,12 @@ public class MessageEditor {
         String text = BuildDescriptionVI(message.getText());
         DataServiceImpl dataService = new DataServiceImpl();
         Data data = new Data(text, message.getText());
+        response.setText(text);
         try {
             dataService.saveData(data);
         } catch (Exception e) {
             log.error("Not unique value");
         }
-        response.setText(text);
-        return response;
+            return response;
+        }
     }
-}

@@ -22,8 +22,9 @@ public class StructureCardBuilder {
             return createEldPageHTML(search);
         } else if (search.contains("vseinstrumenti")){
             return VIFactory(search);
-        }else {
-            return "";
         }
+
+        return "Введите валидную ссылку";
+
     }
 }

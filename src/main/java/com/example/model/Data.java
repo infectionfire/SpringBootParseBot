@@ -17,6 +17,9 @@ public class Data {
     @Column(name = "urls")
     private String urls;
 
+    public Data(Integer id, String features, String urls) {
+    }
+
     public int getId() {
         return id;
     }
