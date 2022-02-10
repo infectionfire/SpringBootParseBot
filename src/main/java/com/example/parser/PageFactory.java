@@ -8,6 +8,8 @@ import org.junit.rules.Timeout;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static com.example.parser.VI.BuildCardVI.buildVIChars;
+
 
 public class PageFactory implements Creator {
 
@@ -32,5 +34,13 @@ public class PageFactory implements Creator {
         options.addArguments(config.getUserAgent());//подстановка юзерагента
         ChromeDriver driver = new ChromeDriver(options);
         return BuildCardEld.buildEldChars(driver, url);
+    }
+
+    public static String createVIPageHTML(String url){
+        System.setProperty("webdriver.chrome.driver","selenium\\chromedriver.exe");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments(config.getUserAgent());//подстановка юзерагента
+        ChromeDriver driver = new ChromeDriver(options);
+        return buildVIChars(driver, url);
     }
 }

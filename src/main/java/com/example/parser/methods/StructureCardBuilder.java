@@ -1,8 +1,7 @@
 package com.example.parser.methods;
 
+import static com.example.parser.PageFactory.*;
 import static com.example.parser.VI.BuildCardVI.VIFactory;
-import static com.example.parser.PageFactory.createDnsPageHTML;
-import static com.example.parser.PageFactory.createEldPageHTML;
 
 
 /**
@@ -21,7 +20,7 @@ public class StructureCardBuilder {
         }else if(search.contains("eldorado")){
             return createEldPageHTML(search);
         } else if (search.contains("vseinstrumenti")){
-            return VIFactory(search);
+            return createVIPageHTML(search);
         }
 
         return "Введите валидную ссылку";
