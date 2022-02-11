@@ -13,8 +13,6 @@ import static com.example.parser.VI.BuildCardVI.buildVIChars;
 
 public class PageFactory implements Creator {
 
-    @Rule
-    public Timeout globalTimeout = new Timeout(300000);
 
     private PageFactory() {
         throw new IllegalStateException("Utility class");

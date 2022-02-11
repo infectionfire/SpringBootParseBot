@@ -14,6 +14,7 @@ import javax.annotation.PostConstruct;
 
 import static com.example.service.MessageEditor.answerCreator;
 
+
 /**
  * 
  * This example bot is an echo bot that just repeats the messages sent to him
@@ -21,7 +22,6 @@ import static com.example.service.MessageEditor.answerCreator;
  */
 @Component
 class ExampleBot extends TelegramLongPollingBot {
-
 	private static final Logger logger = LoggerFactory.getLogger(ExampleBot.class);
 	
 	private final String token;

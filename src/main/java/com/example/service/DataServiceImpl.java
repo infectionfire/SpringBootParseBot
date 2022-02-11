@@ -2,9 +2,11 @@ package com.example.service;
 
 import com.example.dao.DataDaoImpl;
 import com.example.model.Data;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class DataServiceImpl implements DataService{
 
     private DataDaoImpl usersDao = new DataDaoImpl();

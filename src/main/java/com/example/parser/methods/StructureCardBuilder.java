@@ -1,12 +1,12 @@
 package com.example.parser.methods;
 
 import static com.example.parser.PageFactory.*;
-import static com.example.parser.VI.BuildCardVI.VIFactory;
 
 
 /**
  * Файл для составления конфигурации описания
  */
+
 public class StructureCardBuilder {
 
     protected StructureCardBuilder() {
