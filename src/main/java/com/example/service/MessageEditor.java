@@ -15,7 +15,12 @@ public class MessageEditor {
 
         SendMessage response = new SendMessage();
         response.setChatId(String.valueOf(chatId));
-        String text = StructureCardBuilder.BuildDescriptionVI(message.getText());
+        String text = "Введите валидную ссылку";
+        try{
+        text = StructureCardBuilder.BuildDescription(message.getText());
+        }catch (Exception e){
+            log.error(e);
+        }
         DataServiceImpl dataService = new DataServiceImpl();
         Data data = new Data(text, message.getText());
         response.setText(text);

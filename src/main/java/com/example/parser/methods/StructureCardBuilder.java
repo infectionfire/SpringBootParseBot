@@ -1,5 +1,7 @@
 package com.example.parser.methods;
 
+import java.util.Optional;
+
 import static com.example.parser.PageFactory.*;
 
 
@@ -13,17 +15,21 @@ public class StructureCardBuilder {
         throw new IllegalStateException("Utility class");
     }
 
-    public static String BuildDescriptionVI(String search) {
+    public static String BuildDescription(String search) {
+
+        String result = Optional.ofNullable(search)
+                .filter(s -> s.length()>40)
+                .orElseThrow(RuntimeException::new);
 
         if (search.contains("dns-shop")){
-            return createDnsPageHTML(search);
+            return createDnsPageHTML(result);
         }else if(search.contains("eldorado")){
-            return createEldPageHTML(search);
+            return createEldPageHTML(result);
         } else if (search.contains("vseinstrumenti")){
-            return createVIPageHTML(search);
+            return createVIPageHTML(result);
         }
 
-        return "Введите валидную ссылку";
+        return result;
 
     }
 }

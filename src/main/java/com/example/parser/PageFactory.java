@@ -1,10 +1,8 @@
 package com.example.parser;
 
-import com.example.parser.interf.Creator;
 import com.example.parser.dns.BuildCardDNS;
 import com.example.parser.eld.BuildCardEld;
-import org.junit.Rule;
-import org.junit.rules.Timeout;
+import com.example.parser.interf.Creator;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
