@@ -4,6 +4,10 @@ import java.util.List;
 
 public class StringCharacterFormatter {
 
+    protected StringCharacterFormatter() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static StringBuilder characteristicsFormatter(String text, String valueInf){
         StringBuilder characters = new StringBuilder();
         if(!text.equals("")) {

@@ -1,8 +1,13 @@
 package com.example.parser.methods;
 
+import com.example.parser.dns.BuildCardDNS;
+import com.example.parser.eld.BuildCardEld;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.util.Optional;
 
-import static com.example.parser.PageFactory.*;
+import static com.example.parser.SeleniumDriverFactory.driverFactory;
+import static com.example.parser.VI.BuildCardVI.buildVIChars;
 
 
 /**
@@ -21,12 +26,14 @@ public class StructureCardBuilder {
                 .filter(s -> s.length()>40)
                 .orElseThrow(RuntimeException::new);
 
+        ChromeDriver driver = driverFactory(search);
+
         if (search.contains("dns-shop")){
-            return createDnsPageHTML(result);
+            return BuildCardDNS.buildValidCard(driver, search);
         }else if(search.contains("eldorado")){
-            return createEldPageHTML(result);
+            return BuildCardEld.buildEldChars(driver, search);
         } else if (search.contains("vseinstrumenti")){
-            return createVIPageHTML(result);
+            return buildVIChars(driver, search);
         }
 
         return result;

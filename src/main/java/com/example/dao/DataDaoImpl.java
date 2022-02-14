@@ -37,9 +37,8 @@ public class DataDaoImpl  implements DataDao{
         session.close();
     }
     public List<Data> findAll() {
-        List<Data> dataList = (List<Data>)  HibernateSessionFactoryUtil
+        return (List<Data>)  HibernateSessionFactoryUtil
                 .getSessionFactory().openSession().createQuery("From parse_values").list();
-        return dataList;
     }
 
 
